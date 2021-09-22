@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="description" content="Маркировка в Омске">
+    <meta name="description" content="Маркировка меховых изделий">
+    <meta name="keywords" content="Маркировка, Омск, мех, меховые изделия, маркировка нового товара, честный знак, маркировка комисиионного товара">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
+    <meta name="MobileOptimized" content="width">
+    <meta content='true' name='HandheldFriendly'/>
+    <link rel="stylesheet" href="static/style.css">
+
+    <!-- Yandex.Metrika counter -->
+	<script type="text/javascript" >
+   		(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+		   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+		   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		   ym(75100324, "init", {
+		        clickmap:true,
+		        trackLinks:true,
+		        accurateTrackBounce:true
+   		});
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/75100324" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+
+    <title>Маркировка в Омске</title>
+</head>
+
+<body>
+    <div class="content">
+        <div class="header">
+            <img src="static/images/logo/logo.svg" alt="marking omsk logo">
+            <ul>
+                <li>
+                    <a href="/">ГЛАВНАЯ</a>
+                </li>
+                <li>
+                    <a href="#prep">МАРКИРОВКА</a>
+                </li>
+                <li>
+                    <a href="/">О НАС</a>
+                </li>
+            </ul>
+            <div class="contacts">
+                <div class="contacts-phone">
+                    <img src="static/images/logo/cell-phone.png" alt="icon-phone">
+                    <a href="tel:+79136678379">+7 (913) 667-83-79</a>
+                </div>
+                <div class="contacts-email">
+                    <img src="static/images/logo/email.png" alt="icon-email">
+                    <a href="mailto:artemkyz89@gmail.com">ARTEMKYZ89@GMAIL.COM</a>
+                </div>
+            </div>
+        </div>
+        <div class="offer">
+            <div class="offer-text">
+                <hr>
+                <h1>Маркировка меховых изделий, как новый или товар, принятый на комиссию. </h1>
+                <p>Многие сталкивались с необходимостью подать сведения о маркировке меховых изделий. В этом нет никакой сложности если изделий несколько единиц. Другое дело если их десятки, сотни, а может быть и тысячи.</p>
+                <p>Система “Маркировка” предоставила возможность сделать выгрузку неограниченного количества продукции. Но не очевидно как этот отчёт сформировать.</p>
+                <p>Данный сервис предназначен упростить процедуру маркировки меховых изделий, путём создания отчёта для выгрузки в сервис “Маркировка”.</p>
+            </div>
+            <div class="offer-pics">
+                <img src="static/images/offer/1 1.jpg" alt="маркировка в Омске">
+            </div>
+        </div>
+        <div id="prep" class="preparation">
+
+            <div class="preparation-step-1">
+
+                <div class="preparation-text">
+                    <hr>
+                    <h2>Подготовка необходимой информации</h2>
+                    <p>Для отчёта потребуются списки GTIN и КИЗ</p>
+                    <p>Список КИЗ нужно получить в личном кабинете “Маркировка”</p>
+                    <p>Перейдите в личный кабинет “Маркировка”</p>
+                    <p>В меню в разделе Маркировка выберите Учет КИЗ (склад немаркированных КИЗ)</p>
+                    <p>Нажмите на иконку (как на изображении), начнется процесс формирования отчёта</p>
+                    <p>Сохраните файл на свой компьютер</p>
+                </div>
+                <div class="preparation-pics"><img src="static/images/instruction/example_lk.jpg" alt="Инструкция по маркировке 1"></div>
+            </div>
+            <div class="preparation-step-1">
+                <div class="preparation-text">
+                    <p>Откройте только что сохранённый файл</p>
+                    <p>В колонку с названием “ПРОДУКЦИЯ” внесите GTIN для каждого КИЗ</p>
+                    <p>ВАЖНО! Количество КИЗ должно соответствовать количеству GTIN</p>
+                    <p>Поля с незайдействованными КИЗ необходимо удалить</p>
+                    <p>Сохраните изменения</p>
+                </div>
+                <div class="preparation-pics"><img src="static/images/instruction/example_xlsx.jpg" alt="Инструкция по маркировке 2"></div>
+            </div>
+        </div>
+        <div class="report">
+            <form method=post enctype=multipart/form-data>
+                <div class="report-step">
+                    <div class="report-text">
+                        <hr>
+                        <h2>Формирование отчёта</h2>
+                        <label for="gln">Чтобы система безошибочно определила кому принадлежит отчёт, требуется указать Global Location Number (GLN). Узнать его можно в профиле личного кабинета “Маркировка”</label>
+                    </div>
+                    <input id="gln" type="number" name=GLN min='1000000000000' max='9999999999999' placeholder="Введите номер GLN">
+                </div>
+
+                <div class="report-step">
+                    <div class="report-text">
+                        <p>Данный отчёт может быть сформирован для трёх типов изделий: новый товар, товар, принятый на комиссию или возврат от покупателя. Выберите нужный вариант</p>
+                    </div>
+                    <select name="product_type"> 
+                        <option value="0">Новые</option>
+                        <option value="1" selected>Комиссионные</option>
+                        <option value="2">Возвратный</option>
+                    </select>
+                </div>
+
+                <div class="report-step">
+                    <div class="report-text">
+                        <label for="file">Выберите файл с таблицей, который был подготовлен ранее</label>
+                    </div>
+                    <input id="file" type=file name=file>
+                </div>
+
+                <div class="report-step">
+                    <div class="report-text">
+                        <label for="ok">Нажмите кнопку “Загрузить”.  После вам будет предложено сохранить отчёт. Согласитесь</label>
+                    </div>
+                    <input id="ok" type=submit value=Загрузить style="margin-bottom: 15px;">
+                </div>
+            </form>
+        </div>
+
+        <div class="upload">
+            <div class="upload-text">
+                <hr>
+                <h2>Загрузка отчёта</h2>
+                <p>Перейдите в личный кабинет “Маркировка”<br>В меню выберите “Сведения о маркировке”<br>В открышемся окне нажмите “Загрузить отчет из файла XML”<br>Укажите файл, полученный от нашего сервиса<br>После системной проверки подпишите и отправьте отчёт</p>
+            </div>
+            <div class="upload-pics"><img src="static/images/instruction/exapmle_uploadxml.jpg" alt="Инструкция по маркировке 3"></div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-text">
+                <h2>Контактная иформация</h2>
+                <p>Территориально находимся Россия, в городе Омск, но работать можем удалённо со всеми регионами.</p>
+            </div>
+            <div class="footer-contacts">
+                <div class="footer-contacts-phone">
+                    <img src="static/images/logo/cell-phone-w.png" alt="icon-phone">
+                    <a href="tel:+79136678379">+7 (913) 667-83-79</a>
+                </div>
+                <div class="footer-contacts-email">
+                    <img src="static/images/logo/email-w.png" alt="icon-email">
+                    <a href="mailto:artemkyz89@gmail.com">ARTEMKYZ89@GMAIL.COM</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

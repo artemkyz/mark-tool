@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=Days+One&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    font-family: 'Montserrat';
+    text-align: justify;
+}
+
+p {
+    line-height: 22px;
+    margin-top: 0.5em;
+}
+
+p:hover {
+    text-shadow: 0.5px 0.5px #cacaca;
+}
+
+br {
+    margin-top: 0.5em;
+}
+
+.content {
+    width: 1440px;
+    margin: auto;
+}
+
+.header {
+    width: 100%;
+    background-color: #C1D0A4;
+    display: inline-flex;
+    justify-content: space-around;
+    background-image: repeating-linear-gradient(45deg,
+        transparent 20px,
+        transparent 20px,
+        rgb(214, 214, 214) 20px,
+        #C1D0A4 40px);
+}
+
+.header > ul {
+    display: inline-flex;
+    padding-top: 80px;
+}
+
+.header > ul > li {
+    list-style-type: none;
+    margin-right: 100px;
+}
+
+.header > ul > li > a {
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
+
+.header > ul > li > a:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+
+.header > ul > li > a:visited {
+    color: rgb(255, 255, 255);
+}
+
+.contacts {
+    text-align: right;
+    padding-top: 15px;
+}
+
+.contacts-phone {
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding-bottom: 17px;
+}
+
+.contacts-phone > a {
+    color: black;
+    text-decoration: none;
+}
+
+.contacts-email {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.contacts-email > a {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+.offer {
+    background-color: #EBE9D9;
+    width: 100%;
+    height: auto;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.offer-text {
+    width: 570px;
+    padding-top: 50px;
+}
+
+.offer-pics {
+    padding-top: 50px;
+}
+
+.offer-pics > img {
+    box-shadow: 0 5px 10px black;
+}
+
+
+
+.preparation {
+    width: 100%;
+    background-color: #EFFFFE;
+    height: auto;
+}
+
+.preparation-step-1 {
+    padding-top: 50px;
+    width: 100%;
+    justify-content: space-around;
+    display: inline-flex;
+}
+
+.preparation-text {
+    width: 570px;
+}
+
+.preparation-pics > img {
+    box-shadow: 0 0 10px black;
+}
+
+
+
+.report {
+    background-color: #E9FFDE;
+    width: 100%;
+    height: auto;
+}
+
+.report > form {
+    padding-top: 25px;
+}
+
+.report-step {
+    padding-top: 25px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.report-step > label {
+    line-height: 25px;
+}
+
+.report-step > input {
+    width: 568px;
+    height: 35px;
+    font-size: 26px;
+    font-family: 'Montserrat';
+    background-color: #FFEE94;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px black;
+}
+
+.report-step > select {
+    width: 568px;
+    height: 35px;
+    font-size: 26px;
+    font-family: 'Montserrat';
+    background-color: #FFEE94;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px black;
+}
+
+.report-text > label:hover {
+    text-shadow: 0.5px 0.5px #cacaca;
+} 
+
+.report-text {
+    width: 570px;
+}
+
+
+
+
+.upload {
+    width: 100%;
+    height: auto;
+    background-color: #FFFEDD;
+    justify-content: space-around;
+    display: inline-flex;
+}
+
+.upload-text {
+    padding-top: 50px;
+    width: 570px;
+}
+
+.upload-pics > img {
+    margin-top: 75px;
+    box-shadow: 0 0 10px black;
+}
+
+
+
+.footer {
+    width: 100%;
+    color: white;
+    background-color: rgb(77, 77, 77);
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.footer-text {
+    padding-top: 50px;
+    width: 570px;
+}
+
+.footer-contacts {
+    padding-top: 50px;
+    text-align: right;
+    width: 568px;
+}
+
+.footer-contacts-phone {
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding-bottom: 17px;
+}
+
+.footer-contacts-phone > a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-contacts-email {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-contacts-email > a {
+    color: white;
+    text-decoration: none;
+}
+
+
+@media screen and (max-width: 960px) {
+    body {
+        text-align: justify;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        text-align: justify;
+        background-color: rgb(253, 252, 189);
+    }
+
+    h2 {
+        font-size: 2.5em;
+        background-color: rgb(255, 255, 255);
+    }
+
+    p {
+        font-size: 2.5em;
+        line-height: 1.5em;
+        margin-top: 0.5em;
+    }
+
+    label {
+        font-size: 2.5em;
+        line-height: 1.5em;
+    }
+
+    .content {
+        width: 960px;
+    }
+
+    .header {
+        display: flex;
+        width: 100%;
+        height: 150px;
+        justify-content: space-between;
+    }
+
+    .header > img {
+        width: 15em;
+    }
+
+    .header > ul {
+        padding-top: 10px;
+        display: grid;
+        justify-content: space-around;
+    }
+
+    .header > ul > li > a {
+        font-weight: 600;
+        font-size: 1.5em;
+        text-decoration: none;
+        color: black;
+    }
+
+
+    .contacts {
+        padding-top: 10px;
+    }
+
+    .contacts-phone {
+        padding-bottom: 50px;
+    }
+
+    .contacts-phone > a {
+        font-size: 1.5em;
+        text-decoration: none;
+        color: black;
+        letter-spacing: 0.05em;
+    }
+
+    .contacts-phone > img {
+        width: 1.5em;
+    }
+
+    .contacts-email > a {
+        font-size: 1.5em;
+        text-decoration: none;
+        color: black;
+    }
+
+    .contacts-email > img {
+        width: 2.15em;
+    }
+
+
+
+    .offer {
+        width: 100%;
+        display: grid;
+        height: auto;
+    }
+
+    .offer-text {
+        width: 900px;
+    }
+
+    .offer-pics {
+        margin: 0 auto;
+    }
+
+    .offer-pics > img {
+        width: 900px;
+    }
+
+    .preparation {
+        width: 100%;
+        display: grid;
+        height: auto;
+    }
+
+    .preparation-text {
+        width: 900px;
+    }
+
+    .preparation-pics {
+        margin: 0 auto;
+    }
+
+    .preparation-pics > img {
+        width: 900px;
+    }
+
+    .preparation-step-1 {
+        display: grid;
+    }
+
+    .report {
+        width: 100%;
+        height: auto;
+    }
+
+    .report-text {
+        width: 900px;
+    }
+
+    .report-step {
+        display: grid;
+    }
+
+    .report-step > input {
+        margin: 0 auto;
+        width: 100%;
+        height: 2.8em;
+        font-size: 2.5em;
+    }
+
+    .report-step > select {
+        margin: 0 auto;
+        width: 100%;
+        height: 2.8em;
+        font-size: 2.5em;
+    }
+
+    .upload {
+        width: 100%;
+        height: auto;
+        display: grid;
+    }
+
+    .upload-text {
+        width: 900px;
+    }
+
+    .upload-pics {
+        margin: 0 auto;
+    }
+
+    .upload-pics > img {
+        width: 900px;
+    }
+
+    .footer {
+        width: 100%;
+        height: auto;
+        display: grid;
+    }
+
+    .footer-text {
+        width: 900px;
+    }
+
+    .footer-contacts {
+        display: grid;
+    }
+}
