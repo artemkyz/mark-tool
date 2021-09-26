@@ -1,4 +1,4 @@
-from webmark import app
+from FormHandler import FormHandler
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    FormHandler.run(debug=True)
