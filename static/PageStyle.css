@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Days+One&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Montserrat';
+}
+
+div {
+    margin: 0 auto; 
+    width: 500px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 20px;
+    margin: 0 auto;
+    font-weight: 300;
+    border-radius: 0 0 60px 60px;
+    border-bottom: thick solid rgb(207, 207, 207) ;
+}
+
+h2 {
+    text-decoration: underline;
+    padding-top: 32px;
+    width: 90%;
+    font-size: 18px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+p {
+    padding-top: 4px;
+    width: 90%;
+    font-size: 16px;
+    text-align: justify;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    border-bottom: dotted 1px;
+}
+
+a:visited {
+    color: black;
+}
+
+form {
+    padding-top: 4px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+td {
+    font-weight: 300;
+    padding-bottom: 30px;
+    font-size: 16px;
+}
+
+select {
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#submit {
+    font-family: 'Montserrat';
+    background-color: whitesmoke;
+    border: 1px solid;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#fc-cell {
+    float: left;
+}
+
+#sc-cell {
+    float: right;
+}
+

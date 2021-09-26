@@ -6,23 +6,56 @@
 }
 
 body {
-    background-color: black;
     font-family: 'Montserrat';
-    text-align: justify;
 }
 
-p {
+h1 {
+    text-align: left;
+    text-decoration: none;
+}
+
+h2 {
+    text-align: left;
+    text-decoration: underline;
+}
+
+h3 {
+    text-align: left;
+    text-decoration: underline;
+}
+
+.what-is-markirovka {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.why-is-markirovka {
+    margin: 0 auto;
+    width: 90%;
+    background-color: white;
+
+}
+p.why-is-markirovka {
+    line-height: 5  em;
+}
+
+div {
+    border: solid 1px green;
+}
+
+/* p {
     line-height: 22px;
     margin-top: 0.5em;
 }
 
 p:hover {
     text-shadow: 0.5px 0.5px #cacaca;
+
 }
 
 br {
     margin-top: 0.5em;
-}
+} */
 
 .content {
     width: 1440px;
@@ -32,8 +65,6 @@ br {
 .header {
     width: 100%;
     background-color: #C1D0A4;
-    display: inline-flex;
-    justify-content: space-around;
     background-image: repeating-linear-gradient(45deg,
         transparent 20px,
         transparent 20px,
@@ -41,63 +72,13 @@ br {
         #C1D0A4 40px);
 }
 
-.header > ul {
-    display: inline-flex;
-    padding-top: 80px;
-}
-
-.header > ul > li {
-    list-style-type: none;
-    margin-right: 100px;
-}
-
-.header > ul > li > a {
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none;
-    color: black;
-}
-
-.header > ul > li > a:hover {
-    color: rgb(255, 255, 255);
-    text-decoration: underline;
-}
-
-.header > ul > li > a:visited {
-    color: rgb(255, 255, 255);
-}
-
-.contacts {
-    text-align: right;
-    padding-top: 15px;
-}
-
-.contacts-phone {
-    font-size: 20px;
-    letter-spacing: 1px;
-    font-weight: 500;
-    padding-bottom: 17px;
-}
-
-.contacts-phone > a {
-    color: black;
-    text-decoration: none;
-}
-
-.contacts-email {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.contacts-email > a {
-    color: black;
-    text-decoration: none;
-}
 
 
 
 .offer {
-    background-color: #EBE9D9;
+    /* background-color: #EBE9D9; */
+    background-color: #ffffff;
+
     width: 100%;
     height: auto;
     display: inline-flex;
@@ -115,6 +96,7 @@ br {
 
 .offer-pics > img {
     box-shadow: 0 5px 10px black;
+    max-height: 275px;
 }
 
 
