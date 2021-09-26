@@ -22,7 +22,8 @@
         <p id="#description">меховых изделий должна осуществляться согласно <a target="_blank" href="http://www.consultant.ru/document/cons_doc_LAW_203253/">постановлению</a> правительства РФ
             через <a href="http://markirovka.nalog.ru/" target="_blank" rel="noopener noreferrer">личный кабинет</a>  национальной системы цифровой маркировки.</p>
         <p>Документ о маркировке меховых изделий включает в себя:</p>
-        <form action="/action13" method="POST">
+        <br>
+        <form id="desktop" action="/action13" method="POST">
             <table>
                 <tr>
                     <td>
@@ -69,6 +70,34 @@
                     </td>
                 </tr>
             </table>
+        </form>
+
+
+        <form id="mobile" action="/action13" method="POST">
+            Global Location Number
+            <br>
+            <input type="text" name="gln">
+            <br>
+            <br>
+            Global Trade Item Number
+            <br>
+            <input type="text" name="gtin">
+            <br>
+            <br>
+            Контрольный Идентификационный Знак
+            <input type="text" name='tid'>
+            <br>
+            <br>
+            <label for="product_type">Тип марикруемого товара</label>
+            <br>
+            <select id="product_type" name="product_type"> 
+                <option value="0">новый</option>
+                <option value="1" selected="">комиссионный</option>
+                <option value="2">возвратный</option>
+            </select>
+            <br>
+            <br>
+            <input id="submit" type="submit" value="Получить документ">
         </form>
 
     </div>

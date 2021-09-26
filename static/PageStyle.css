@@ -9,6 +9,14 @@ body {
     font-family: 'Montserrat';
 }
 
+#desktop {
+    display: block;
+}
+
+#mobile {
+    display: none;
+}
+
 div {
     margin: 0 auto; 
     width: 500px;
@@ -84,4 +92,95 @@ select {
 #sc-cell {
     float: right;
 }
+
+
+@media screen and (max-width: 1000px) {    
+    #desktop {
+        display: none;
+    }
+    
+    #mobile {
+        display: block;
+    }
+    
+    div {
+        margin: 0 auto; 
+        width: 100%;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 22px;
+        margin: 0 auto;
+        font-weight: 300;
+        border-radius: 0 0 60px 60px;
+        border-bottom: thick solid rgb(207, 207, 207) ;
+    }
+    
+    h2 {
+        text-decoration: none;
+        padding-top: 32px;
+        width: 90%;
+        font-size: 20px;
+        margin: 0 auto;
+        font-weight: 300;
+        border-radius: 0 0 0 10px;
+        border-bottom: medium solid rgb(207, 207, 207);
+    }
+    
+    p {
+        padding-top: 4px;
+        width: 90%;
+        font-size: 18px;
+        text-align: justify;
+        margin: 0 auto;
+        font-weight: 300;
+    }
+    
+    a {
+        color: black;
+        text-decoration: none;
+        border-bottom: dotted 1px;
+    }
+    
+    a:visited {
+        color: black;
+    }
+    
+    form {
+        width: 90%;
+        padding-top: 4px;
+        margin: 0 auto;
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    form > input {
+        width: 100%;
+    }
+    
+    td {
+        font-weight: 300;
+        padding-bottom: 30px;
+        font-size: 16px;
+    }
+    
+    select {
+        font-family: 'Montserrat';
+        font-size: 16px;
+        font-weight: 300;
+        width: 100%;
+    }
+    
+    #submit {
+        width: 60%;
+        font-family: 'Montserrat';
+        background-color: whitesmoke;
+        border: 1px solid;
+        font-size: 16px;
+        font-weight: 300;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
 

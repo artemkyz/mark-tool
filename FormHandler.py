@@ -173,7 +173,3 @@ def action13():
 
     except ValueError as error:
         return render_template('error.html', reason=error)
-
-
-if __name__ == '__main__':
-    FormHandler.run(debug=True)
