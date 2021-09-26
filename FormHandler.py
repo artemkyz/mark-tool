@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from flask import request
 from flask import send_from_directory
 from lxml import etree
-import os
 from datetime import datetime
 import lxml.builder
 
@@ -26,12 +25,6 @@ def action13():
 
         if (response['gln'] and response['gtin'] and response['tid']) == '':
             return render_template('error.html', reason='Отсутствуют некоторые вводные данные')
-
-        # if response['gtin'] == '':
-        #     return render_template('error.html', reason='отсутствует GTIN')
-        #
-        # if response['tid'] == '':
-        #     return render_template('error.html', reason='отсутствует КИЗ')
 
         gln = response['gln']
         gtin = response['gtin'].split(' ')
@@ -179,7 +172,7 @@ def action13():
                                        f'{gln}.xml', as_attachment=True)
 
     except ValueError as error:
-        return render_template('error.html', reason='Неизвестная ошибка, просьба связаться с разработчиком.')
+        return render_template('error.html', reason=error)
 
 
 if __name__ == '__main__':
