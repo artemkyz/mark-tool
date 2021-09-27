@@ -22,7 +22,6 @@ def action13():
     try:
         response = dict(request.form)
         email = response['email']
-        print(email)
         gln = response['gln']
         gtin = response['gtin'].split(' ')
         tid = response['tid'].split(' ')
