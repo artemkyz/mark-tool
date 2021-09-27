@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="description" content="Маркировка меховых изделий, инструмент для маркировки меха">
+    <meta name="keywords" content="Маркировка, Омск, мех, меховые изделия, маркировка нового товара, честный знак, маркировка комисиионного товара">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
+    <meta name="MobileOptimized" content="width">
+    <meta content='true' name='HandheldFriendly'/>
+    <link rel="stylesheet" href="static/PageStyle.css">
+    <link rel="stylesheet" href="/home/rtm/Documents/Projects/githubtest/mark-service/static/PageStyle.css">
+    <title>marktool</title>
+</head>
+
+<body>
+    <div>
+        <h1>marktool</h1>
+        <h2 id="service_msg_h2">Ошибка</h2>
+        <p>{{ reason }}</p>
+        <p>{{ comment|safe }}</p>
+        <form action="/" method="get">
+            <button id="submit">Попробовать снова</button>
+        </form>
+    </div>
+</body>
+</html>

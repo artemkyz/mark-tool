@@ -21,23 +21,21 @@ def hello_world():
 def action13():
     try:
         response = dict(request.form)
-        print(response)
-
-        if (response['gln'] and response['gtin'] and response['tid']) == '':
-            return render_template('error.html', reason='Отсутствуют некоторые вводные данные')
-
         gln = response['gln']
         gtin = response['gtin'].split(' ')
         tid = response['tid'].split(' ')
         product_t = response['product_type']
 
-        # Количество TID должно быть равно количеству GTIN и наоборот.
-        if len(gtin) != len(tid):
-            if len(gtin) < len(tid):
-                return render_template('error.html', reason='Количество GTIN меньше TID')
+        if (gln and gtin and tid) == '':
+            comment = f'GLN: {gln}; GTIN: {gtin}; TID: {tid};'
+            return render_template('service_msg.html', reason='Отсутствуют данные', comment=comment)
 
-            elif len(gtin) > len(tid):
-                return render_template('error.html', reason='Количество TID меньше GTIN')
+        # Количество TID должно быть равно количеству GTIN и наоборот.
+        if len(gtin) < len(tid):
+            return render_template('service_msg.html', reason='Количество GTIN меньше TID')
+
+        elif len(gtin) > len(tid):
+            return render_template('service_msg.html', reason='Количество TID меньше GTIN')
 
         # Создаем словарь, в котором будем хранить полученные данные.
         # Первичным ключом станет номер GLN,
@@ -59,6 +57,7 @@ def action13():
             # Сложение полученных результатов в SGTIN96
             d[gtin] = [tid, '00110000001011' + gln_binary + '0' + product_binary + tid_bin]
 
+        # Генерация документа в формате xml
         now = datetime.strftime(datetime.now(), "%Y-%m-%dT%H:%M:%SZ")
         xsd = 'http://www.w3.org/2001/XMLSchema'
         xsi = 'http://www.w3.org/2001/XMLSchema-instance'
@@ -92,8 +91,7 @@ def action13():
             product_type.text = str(product_t)
         doc = etree.ElementTree(page)
         doc.write(f"{UPLOAD_FOLDER}/{gln}.xml", pretty_print=True)
-        return send_from_directory(UPLOAD_FOLDER,
-                                   f'{gln}.xml', as_attachment=True)
+        return send_from_directory(UPLOAD_FOLDER, f'{gln}.xml', as_attachment=True)
 
     except ValueError as error:
-        return render_template('error.html', reason=error)
+        return render_template('service_msg.html', reason=error)
