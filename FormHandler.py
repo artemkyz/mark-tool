@@ -1,10 +1,8 @@
 from flask import Flask, render_template
 from flask import request
 from flask import send_from_directory
-# from lxml import etree
-# from datetime import datetime
-# import lxml.builder
 from User import document
+
 
 UPLOAD_FOLDER = 'uploads'
 FormHandler = Flask(__name__)
