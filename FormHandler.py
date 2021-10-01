@@ -33,6 +33,11 @@ def action13():
             comment = f'gln: {gln}; gtin: {gtin}; kiz: {kiz} ; tid: {tid};'
             return render_template('service_msg.html', reason='Отсутствуют данные', comment=comment)
 
+        if len(gtin) != len(kiz) or len(gtin) != len(tid) or len(kiz) != len(gtin) or len(kiz) != len(tid) \
+                or len(tid) != len(gtin) or len(tid) != len(kiz):
+            comment = 'Количество gtin, kiz и tid не совпадают'
+            return render_template('service_msg.html', reason='Отсутствуют данные', comment=comment)
+
         document(gln, gtin, kiz, tid, product_t)
         return send_from_directory(UPLOAD_FOLDER, f'{gln}.xml', as_attachment=True)
 
