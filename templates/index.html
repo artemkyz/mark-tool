@@ -27,7 +27,7 @@
             <table>
                 <tr>
                     <td>
-                        Email address
+                        Email address:
                     </td>
                     <td id="sc-cell">
                         <input type="email" name="email">
@@ -36,7 +36,7 @@
 
                 <tr>
                     <td>
-                        Global Location Number
+                        Global Location Number:
                     </td>
                     <td id="sc-cell">
                         <input type="text" name="gln">
@@ -45,7 +45,7 @@
                 
                 <tr>
                     <td>
-                        Global Trade Item Number
+                        Global Trade Item Number:
                     </td>
                     <td id="sc-cell">
                         <input type="text" name="gtin">
@@ -54,16 +54,26 @@
 
                 <tr>
                     <td>
-                        Контрольный Идентификационный Знак
+                        Контрольный Идентификационный Знак:
+                    </td>
+                    <td id="sc-cell">
+                        <input type="text" name='kiz'>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Серийный номер киз:
                     </td>
                     <td id="sc-cell">
                         <input type="text" name='tid'>
                     </td>
                 </tr>
 
+
                 <tr>
                     <td>
-                        <label for="product_type">Тип марикруемого товара</label>
+                        <label for="product_type">Тип марикруемого товара:</label>
                     </td>
                     <td  id="sc-cell">
                         <select id="product_type" name="product_type"> 
@@ -82,26 +92,30 @@
         </form>
 
         <form id="mobile" action="/action13" method="POST">
-            Email address
+            Email address:
             <br>
             <input type="email" name="email">
             <br>
             <br>
-            Global Location Number
+            Global Location Number:
             <br>
             <input type="text" name="gln">
             <br>
             <br>
-            Global Trade Item Number
+            Global Trade Item Number:
             <br>
             <input type="text" name="gtin">
             <br>
             <br>
-            Контрольный Идентификационный Знак
+            Контрольный Идентификационный Знак:
+            <input type="text" name='kiz'>
+            <br>
+            <br>
+            Серийный номер киз:
             <input type="text" name='tid'>
             <br>
             <br>
-            <label for="product_type">Тип марикруемого товара</label>
+            <label for="product_type">Тип марикруемого товара:</label>
             <br>
             <select id="product_type" name="product_type"> 
                 <option value="0">новый</option>
