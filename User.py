@@ -20,8 +20,9 @@ def document(gln, gtin, kiz, tid, product_t):
         if (
                 '11100010000000000110100000001010' or '11100010000000000110100000001011' or '11100010100000000110110100010010' or '11100010100000000110110110010010') in binary_tid:
             kiz_dct[kiz] = ['111' + binary_tid[61:95], tid]
+        # Здесь добавлять проверку производителя чипа
 
-    # Объединяем два словаря. В значения словаря gtin добавляем ключ и значения словаря kiz
+    # Объединяем два словаря с gtin и kiz: tid
     d = dict()
     count = 0
     for g in gtin_dct.keys():
@@ -31,6 +32,7 @@ def document(gln, gtin, kiz, tid, product_t):
         d[g] = c
         count += 1
 
+    # Формируем документы в формате xml
     now = datetime.strftime(datetime.now(), "%Y-%m-%dT%H:%M:%SZ")
     xsd = 'http://www.w3.org/2001/XMLSchema'
     xsi = 'http://www.w3.org/2001/XMLSchema-instance'
