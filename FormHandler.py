@@ -1,7 +1,8 @@
 from flask import Flask, render_template
 from flask import request
-from flask import send_from_directory
 from User import document
+from emailer import send_mail
+from config import service_email
 
 
 UPLOAD_FOLDER = 'uploads'
@@ -19,7 +20,7 @@ def hello_world():
 def action13():
     try:
         response = dict(request.form)
-        # email = response['email']
+        email = response['email']
         gln = response['gln']
         gtin = response['gtin'].split(' ')
         kiz = response['kiz'].split(' ')
@@ -37,8 +38,11 @@ def action13():
             return render_template('service_msg.html', reason='Отсутствуют данные', comment=comment)
 
         document(gln, gtin, kiz, tid, product_t)
-        return send_from_directory(UPLOAD_FOLDER, f'{gln}.xml', as_attachment=True)
+        send_mail(send_from=service_email, send_to=[email], subject='Маркировка',
+                  text='во вложении документ для маркировки шуб', files=[f'{UPLOAD_FOLDER}/{gln}.xml'])
+        return render_template('ok.html')
 
     except ValueError as error:
         print(error)
         return render_template('service_msg.html', reason=error)
+
