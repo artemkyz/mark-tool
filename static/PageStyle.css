@@ -78,12 +78,20 @@ select {
     font-weight: 300;
 }
 
+#product_type:hover {
+    cursor: pointer;
+}
+
 #submit {
     font-family: 'Montserrat';
     background-color: whitesmoke;
     border: 1px solid;
     font-size: 14px;
     font-weight: 300;
+}
+
+#submit:hover {
+    cursor: pointer;
 }
 
 #fc-cell {
@@ -179,7 +187,7 @@ select {
     }
     
     #submit {
-        width: 60%;
+        width: 100%;
         font-family: 'Montserrat';
         background-color: whitesmoke;
         border: 1px solid;
