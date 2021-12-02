@@ -1,131 +1,62 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta name="description" content="Маркировка меховых изделий, инструмент для маркировки меха">
-    <meta name="keywords" content="Маркировка, Омск, мех, меховые изделия, маркировка нового товара, честный знак, маркировка комисиионного товара">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, user-scalable=yes">
-    <meta content='yes' name='apple-mobile-web-app-capable'/>
-    <meta name="MobileOptimized" content="width">
-    <meta content='true' name='HandheldFriendly'/>
-    <link rel="stylesheet" href="static/PageStyle.css">
-    <link rel="stylesheet" href="/home/rtm/Documents/Projects/githubtest/mark-service/static/PageStyle.css">
-    <title>Marktool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+    <title>Маркировка меховых изделий</title>
 </head>
-
 <body>
-    <div>
-        <h1>marktool</h1>
-        <h2>Маркировка</h2>
-        <p id="#description">меховых изделий должна осуществляться согласно <a target="_blank" href="http://www.consultant.ru/document/cons_doc_LAW_203253/">постановлению</a> правительства РФ
-            через <a href="http://markirovka.nalog.ru/" target="_blank" rel="noopener noreferrer">личный кабинет</a>  национальной системы цифровой маркировки.</p>
-        <p>Документ о маркировке меховых изделий включает в себя:</p>
+    <div class="content">
+        <header>
+            <img id="logo" src="static/img/logo.png" alt="Логотип маркировка">
+            {% if session['gln'] %}
+            <ul>
+                <li>
+                    <a href="/">Главная</a>
+                </li>
+                <li>
+                    <a href="/area">Личный кабинет</a>
+                </li>
+                <li>
+                    <a href="/logout">Выход</a>
+                </li>
+            </ul>
+            {% else %}
+            <ul>
+                <li>
+                    <a href="/">Главная</a>
+                </li>
+                <li>
+                    <a href="/registration">Регистрация</a>
+                </li>
+                <li>
+                    <a href="/login">Вход</a>
+                </li>
+            </ul>
+            {% endif %}
+        </header>
 
-        <br>
-        <form id="desktop" action="/action13" method="POST">
-            <table>
-                <tr>
-                    <td>
-                        Email address:
-                    </td>
-                    <td id="sc-cell">
-                        <input type="email" name="email">
-                    </td>
-                </tr>
+        <div class="middle">
+            <h1>Добро пожаловать</h1>
+            <p>Веб приложение <i>Маркировка</i> позволяет облегчить процедуру регистрации меховых изделий согласно постановлению правительства РФ (<a href="https://base.garant.ru/71465032/" target="_blank">ссылка</a>)</p>
 
-                <tr>
-                    <td>
-                        Global Location Number:
-                    </td>
-                    <td id="sc-cell">
-                        <input type="text" name="gln">
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        Global Trade Item Number:
-                    </td>
-                    <td id="sc-cell">
-                        <input type="text" name="gtin">
-                    </td>
-                </tr>
+            <h2>Что требуется для маркировки</h2>
+            <p>Регистрация в веб приложении <i>Маркировка</i>;</p>
+            <p>Глобальный идентификационный номер (GLN), указанный в профиле личного кабинета <a href="https:\\markirovka.nalog.ru" target="_blank">markirovka.nalog.ru</a>;</p>
+            <p>КиЗ и TID, указанные в списке немаркированных КиЗ в личном кабинете <a href="https:\\markirovka.nalog.ru" target="_blank">markirovka.nalog.ru</a>;</p>
+            <p>GTIN - глобальные номера товарной продукции, полученные в ГС1 РУ;</p>
 
-                <tr>
-                    <td>
-                        Контрольный Идентификационный Знак:
-                    </td>
-                    <td id="sc-cell">
-                        <input type="text" name='kiz'>
-                    </td>
-                </tr>
+            <h2>Что делать дальше</h2>
+            <p>После регистрации на данном ресурсе, Вам станет доступна форма, в которой требуется указать перечисленные выше данные и получить документ, который будет направлен на указанный при регистрации адрес электронной почты. После вы сможете загрузить документ в личном кабинете markirovka.nalog.ru</p>
+        </div>
 
-                <tr>
-                    <td>
-                        Серийный номер киз:
-                    </td>
-                    <td id="sc-cell">
-                        <input type="text" name='tid'>
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td>
-                        <label for="product_type">Тип марикруемого товара:</label>
-                    </td>
-                    <td  id="sc-cell">
-                        <select id="product_type" name="product_type"> 
-                            <option value="0">новый</option>
-                            <option value="1" selected="">комиссионный</option>
-                            <option value="2">возвратный</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td id="fc-cell">
-                        <input id="submit" type="submit" value="Получить документ">
-                    </td>
-                </tr>
-            </table>
-        </form>
-
-        <form id="mobile" action="/action13" method="POST">
-            Email address:
-            <br>
-            <input type="email" name="email">
-            <br>
-            <br>
-            Global Location Number:
-            <br>
-            <input type="text" name="gln">
-            <br>
-            <br>
-            Global Trade Item Number:
-            <br>
-            <input type="text" name="gtin">
-            <br>
-            <br>
-            Контрольный Идентификационный Знак:
-            <input type="text" name='kiz'>
-            <br>
-            <br>
-            Серийный номер киз:
-            <input type="text" name='tid'>
-            <br>
-            <br>
-            <label for="product_type">Тип марикруемого товара:</label>
-            <br>
-            <select id="product_type" name="product_type"> 
-                <option value="0">новый</option>
-                <option value="1" selected="">комиссионный</option>
-                <option value="2">возвратный</option>
-            </select>
-            <br>
-            <br>
-            <input id="submit" type="submit" value="Получить документ">
-        </form>
+        <div class="footer">
+        </div>
     </div>
 </body>
 </html>

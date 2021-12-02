@@ -1,11 +1,14 @@
 from lxml import etree
 from datetime import datetime
 import lxml.builder
+from config import documents_directory
 
 
-def document(gln, gtin, kiz, tid, product_t):
-    # Генерируем словарь, содержащий gtin с бинарным
-    gtin_dct = dict()
+def document13(gln, gtin, kiz, tid, product_t):
+    data = {}  # Словарь, в котором будем хранить ключ gtin со значениями gln, kiz, tid, sgtin, sgtin_hex для
+    # последующей записи в БД
+
+    gtin_dct = dict()  # Генерируем словарь, содержащий gtin с бинарным
     for x in gtin:
         y = bin(int(x[0:9]))[2:].rjust(30, '0')
         z = bin(int(x[9:12]))[2:].rjust(14, '0')
@@ -18,7 +21,8 @@ def document(gln, gtin, kiz, tid, product_t):
         tid = d.get(kiz)
         binary_tid = bin(int(str(tid), 16))[2:]
         if (
-                '11100010000000000110100000001010' or '11100010000000000110100000001011' or '11100010100000000110110100010010' or '11100010100000000110110110010010') in binary_tid:
+                '11100010000000000110100000001010' or '11100010000000000110100000001011' or
+                '11100010100000000110110100010010' or '11100010100000000110110110010010') in binary_tid:
             kiz_dct[kiz] = ['111' + binary_tid[61:95], tid]
         # Здесь добавлять проверку производителя чипа
 
@@ -28,7 +32,8 @@ def document(gln, gtin, kiz, tid, product_t):
     for g in gtin_dct.keys():
         kiz_t = list(kiz_dct.keys())
         # Получаем sgtin96
-        c = ['00110000001011' + gtin_dct.get(g) + kiz_dct.get(kiz_t[count])[0], kiz_dct.get(kiz_t[count])[1], kiz_t[count]]
+        c = ['00110000001011' + gtin_dct.get(g) + kiz_dct.get(kiz_t[count])[0], kiz_dct.get(kiz_t[count])[1],
+             kiz_t[count]]
         d[g] = c
         count += 1
 
@@ -66,5 +71,8 @@ def document(gln, gtin, kiz, tid, product_t):
         sign_tid.text = d.get(g)[1]
         product_type = etree.SubElement(union, "product_type")
         product_type.text = str(product_t)
+        # kiz = d.get(g)[2]; tid = d.get(g)[1]; sgtin = d.get(g)[0]; sgtin_hex = hex(int(d.get(g)[0], 2))[2:]
+        data[g] = gln, d.get(g)[2], d.get(g)[1], d.get(g)[0], hex(int(d.get(g)[0], 2))[2:]
     doc = etree.ElementTree(page)
-    doc.write(f"uploads/{gln}.xml", pretty_print=True)
+    doc.write(f"{documents_directory}/{gln}.xml", pretty_print=True)
+    return data

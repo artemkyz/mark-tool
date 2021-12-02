@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Маркировка - получить документ для регистрации</title>
+</head>
+<body>
+    <div class="content">
+        <header>
+            <img id="logo" src="static/img/logo.png" alt="Логотип маркировка">
+            <ul>
+                <li>
+                    <a href="/">Главная</a>
+                </li>
+                <li>
+                    <a href="/area">Личный кабинет</a>
+                </li>
+                <li>
+                    <a href="/logout">Выход</a>
+                </li>
+            </ul>
+        </header>
+
+        <div class="middle">
+            <h1>Маркированная продукция</h1>
+            <br>
+            {{ message|safe }}
+            <table class="marked">
+                <tr class="marked">
+                    <th>GTIN</th>
+                    <th>КИЗ</th>
+                    <th>TID</th>
+                    <th>SGTIN</th>
+                    <th>SGTIN_HEX</th>
+                </tr>
+                {% for i in data %}
+                    <tr class="marked">
+                        {% for _ in i[1:] %}<td class="marked">{{ _ }}</td>{% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="footer">
+
+        </div>
+    </div>
+</body>
+</html>

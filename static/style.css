@@ -1,0 +1,198 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.content {
+    width: 500px;
+    background-color: white;
+    margin: 0 auto;
+    border: solid thin black;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#logo {
+    width: 50px;
+    margin-left: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    font-size: 12px;
+    font-weight: 300;
+    margin-right: 8px;
+}
+
+li {
+    margin-left: 8px;
+
+}
+
+a {
+    color: black;
+}
+
+#gln {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 40px 0 0 8px;
+}
+
+h2 {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 40px 0 0 8px;
+}
+
+p {
+    font-size: 12px;
+    font-weight: 300;
+    margin: 4px 8px 0 16px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+#gln {
+    margin-left: 8px;
+}
+
+form {
+    margin: 0 8px 0 8px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+table {
+    font-size: 12px;
+    font-weight: 300;
+    width: 100%;
+}
+
+td {
+    padding-top: 8px;
+}
+
+#sc-cell {
+    text-align: right;
+}
+
+label {
+    font-size: 12px;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    width: 150px;
+    border: solid black thin;
+    background-color: white;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+}
+
+input:focus {
+    outline: none;
+}
+
+textarea {
+    width: 150px;
+    background-color: white;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+input[type=submit] {
+    width: 152px;
+    background-color: whitesmoke;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+}
+
+select {
+    width: 152px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    border-radius: 0;
+    text-align: center;
+}
+
+select:focus {
+    outline: none;
+}
+
+button {
+    width: 152px;
+    background-color: whitesmoke;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.area {
+    display: flex;
+    justify-content: space-between;
+}
+
+.area-menu {
+    display: flex;
+    height: 20px;
+}
+
+.area ul {
+    margin-top: 0px;
+}
+
+.area ul li {
+    margin-right: 0px;
+    margin-left: 0px;
+    box-shadow: 1px 2px 0px 0px rgba(0, 0, 0, 0.25);
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 6px;
+}
+
+.area ul li:hover {
+    box-shadow: 2px 3px 0px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.area ul li a {
+    text-decoration: none;
+}
+
+.marked  {
+    border: thin solid black;
+    word-wrap: break-word;
+    text-align: center;
+    table-layout: fixed;
+    width: 99%;
+    margin: 0 auto;
+}

@@ -1,1 +1,5 @@
-service_email = ''
+dbase = 'db/db.db'
+secret_key = ''
+admin_email = ''
+documents_directory = ''
+domain_name = ''
