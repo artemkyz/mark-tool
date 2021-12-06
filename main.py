@@ -3,12 +3,12 @@ import os.path
 from datetime import datetime
 import uuid
 
+import utils
+from actions.unify_self_signs import document
+import emailer
 from db_utils import new_base, commit_new_user, commit_temp_user, check_user_credentials, check_user_exist, \
-    commit_fur, marked_furs, check_user_token, delete_temp_user
+    marked_furs, check_user_token, delete_temp_user
 from config import dbase, secret_key, admin_email, documents_directory, domain_name
-from emailer import send_mail
-from actions.action13 import document13
-
 
 app = Flask(__name__)
 app.secret_key = secret_key
@@ -30,18 +30,14 @@ def registration():
         gln = request.form['gln']
         password = request.form['password']
         email = request.form['email']
-        check_user = check_user_exist(gln=gln)
+        check_user = check_user_exist(gln, password)
         if check_user is True:
             message = '<p style="color:green; text-align:center; margin:0;">Пользователь с таким GLN уже ' \
                       'зарегистрирован, <a href="/login">войти</a>?</p> '
             return render_template('registration.html', message=message)
 
         token = uuid.uuid4().hex
-        print(token)
-        send_mail(send_from=admin_email, send_to=[email], subject='Регистрация Маркировка',
-                  text=f'Для подтверждения регистрации на сайте mark-tool перейдите по ссылке https:\\\{domain_name}\\'
-                       f'confirm_registration\\{token} '
-                       f'В случае если это письмо ошибочно попало в Ваш почтовый ящик просто удалите его.')
+        emailer.send_registration(admin_email, email, domain_name, token)
         commit_temp_user(date=date, gln=gln, password=password, email=email, token=token)
         message = f'<p style="text-align:center; margin:0;">Для завершения регистрации проверьте почту {email} ' \
                   f'и перейдите по ссылке из письме</p> '
@@ -60,10 +56,8 @@ def confirm_registration():
     if user_statement is False:
         return "failed", 200
 
-    print(user_statement)
     date_diff = datetime.now().timestamp() - float(user_statement[0])  # с момента регистрации должно пройти не
     # больше 86400 секунд
-    print(date_diff)
     if date_diff < 86400:
         # commit_new_user(timestamp, gln, password, email)
         commit_new_user(user_statement[0], user_statement[1], user_statement[2], user_statement[3])
@@ -120,28 +114,22 @@ def delete_gln():
     return redirect(url_for('index'))
 
 
-@app.route('/action13', methods=['POST'])
+@app.route('/action20', methods=['POST'])
 def action13():
     if request.method == 'POST':
-        gtin = request.form['gtin'].splitlines()
-        kiz = request.form['kiz'].splitlines()
-        tid = request.form['tid'].splitlines()
         product_t = request.form['product_type']
         gln = session['gln']
         email = request.form['email']
 
-        if len(gtin) != len(kiz) or len(gtin) != len(tid) or len(kiz) != len(gtin) or len(kiz) != len(tid) \
-                or len(tid) != len(gtin) or len(tid) != len(kiz):
-            message = '<p style="color:red; text-align:center; margin:0;">Количество gtin, kiz и tid не совпадают</p>'
-            return render_template('area.html', message=message)
+        statement = utils.diff_user_input(dict(request.values))
+        if statement[0] is False:
+            return render_template('area.html', message=statement[1])
 
         try:
-            data = document13(gln, gtin, kiz, tid, product_t)
-            send_mail(send_from=admin_email, send_to=[email], subject='Маркировка',
-                      text='во вложении документ для маркировки шуб', files=[f'{documents_directory}/{gln}.xml'])
+            document(gln, statement[1], product_t)
+            emailer.send_document(admin_email, email,documents_directory, gln)
             message = f'<p style="color:green; text-align:center; margin:0;">' \
                       f'Документ успешно отправлен на почту {email}</p> '
-            commit_fur(data)
 
             return render_template('area.html', message=message)
 

@@ -68,10 +68,10 @@ def check_user_credentials(gln, password):
     return True
 
 
-def check_user_exist(gln):
+def check_user_exist(gln, password):
     connector = sqlite3.connect(dbase)
     cursor = connector.cursor()
-    cursor.execute('''SELECT gln from users WHERE gln=?''', (gln, ))
+    cursor.execute('''SELECT gln from users WHERE gln=? AND password=?''', (gln, password))
     if not cursor.fetchone():
         connector.close()
         return False

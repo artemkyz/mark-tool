@@ -31,3 +31,16 @@ def send_mail(send_from, send_to, subject, text, files=None,
     smtp = smtplib.SMTP(server)
     smtp.sendmail(send_from, send_to, msg.as_string())
     smtp.close()
+
+
+def send_registration(admin_email, email, domain_name, token):
+    send_mail(send_from=admin_email, send_to=[email], subject='Регистрация Маркировка',
+              text=f'Для подтверждения регистрации на сайте mark-tool перейдите по ссылке https://{domain_name}/'
+                   f'confirm_registration?token={token} '
+                   f'В случае если это письмо ошибочно попало в Ваш почтовый ящик просто удалите его.')
+
+
+def send_document(admin_email, email,documents_directory, gln):
+    send_mail(send_from=admin_email, send_to=[email], subject='Маркировка',
+              text='во вложении документ для маркировки шуб', files=[f'{documents_directory}/{gln}.xml'])
+
